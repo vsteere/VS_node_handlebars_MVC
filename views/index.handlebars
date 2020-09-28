@@ -1,6 +1,6 @@
 <h1>Let's Eat the Burger!</h1>
 
-
+{{!-- This is the first unordered list to show the burgers that are not yet eaten --}}
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
@@ -9,7 +9,7 @@
   {{/each}}
 </ul>
 
-
+{{!-- Second list for the burgers that are eaten --}}
 <ul>
   {{#each burgers}}
     {{#if devoured}}
@@ -17,7 +17,7 @@
     {{/if}}
   {{/each}}
 </ul>
-
+{{!-- Box for user to type in a new burger and a submit button --}}
 <h2>Add a New Burger</h2>
 <form class="create-form">
 
