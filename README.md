@@ -1,1 +1,1 @@
-# VS_node_handlebars_MVC
+# node_express_handlebars_MVC_app

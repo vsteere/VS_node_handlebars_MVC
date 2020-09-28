@@ -1,0 +1,25 @@
+{
+  "name": "node_express_handlebars_MVC_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsteere/node_express_handlebars_MVC_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsteere/node_express_handlebars_MVC_app/issues"
+  },
+  "homepage": "https://github.com/vsteere/node_express_handlebars_MVC_app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql2": "^2.2.5"
+  }
+}
