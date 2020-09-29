@@ -36,7 +36,7 @@ let orm = {
         });
     },
     //adds a new burger to database
-    insertOne: function (table, cols, vals, cb) {
+    createOne: function (table, cols, vals, cb) {
         let queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -46,9 +46,9 @@ let orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
 
-        console.log(query);
+        console.log(queryString);
 
-        connection.query(query, vals, function (err, res) {
+        connection.query(queryString, vals, function (err, res) {
             if (err) {
                 throw err;
             }
@@ -79,7 +79,7 @@ let orm = {
         queryString += " WHERE ";
         queryString += condition;
     
-        connection.query(query, function(err, result) {
+        connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
           }
