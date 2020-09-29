@@ -28,16 +28,34 @@ function objToSql(ob) {
 //three methods for running the application
 let orm = {
 
-selectall: function() {
-
-
+selectAll: function(input, cb) {
+    let query = "SELECT * FROM " + input + ";";
+    connection.query(query, function(err, res) {
+        if (err) {throw err;}
+        cb(res);
+      });
 },
 
-insertOne: function() {
+insertOne: function(table, cols, vals, cb) {
+    let query = "INSERT INTO " + table;
 
+    query += " (";
+    query += cols.toString();
+    query += ") ";
+    query += "VALUES (";
+    query += printQuestionMarks(vals.length);
+    query += ") ";
 
+    console.log(query);
 
-},
+    connection.query(query, vals, function(err, res) {
+      if (err) {
+        throw err;
+      }
+
+      cb(res);
+    });
+  },
 
 updateOne: function() {
 
