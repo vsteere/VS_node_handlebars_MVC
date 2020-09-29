@@ -14,7 +14,7 @@ function printQuestionMarks(num) {
 
 function objToSql(ob) {
     let arr = [];
-        for (let key in ob) {
+    for (let key in ob) {
         let value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
@@ -27,40 +27,55 @@ function objToSql(ob) {
 };
 //three methods for running the application
 let orm = {
+    //selects all burgers from database
+    selectAll: function (input, cb) {
+        let query = "SELECT * FROM " + input + ";";
+        connection.query(query, function (err, res) {
+            if (err) { throw err; }
+            cb(res);
+        });
+    },
+    //adds a new burger to database
+    insertOne: function (table, cols, vals, cb) {
+        let query = "INSERT INTO " + table;
 
-selectAll: function(input, cb) {
-    let query = "SELECT * FROM " + input + ";";
-    connection.query(query, function(err, res) {
-        if (err) {throw err;}
-        cb(res);
-      });
-},
+        query += " (";
+        query += cols.toString();
+        query += ") ";
+        query += "VALUES (";
+        query += printQuestionMarks(vals.length);
+        query += ") ";
 
-insertOne: function(table, cols, vals, cb) {
-    let query = "INSERT INTO " + table;
+        console.log(query);
 
-    query += " (";
-    query += cols.toString();
-    query += ") ";
-    query += "VALUES (";
-    query += printQuestionMarks(vals.length);
-    query += ") ";
+        connection.query(query, vals, function (err, res) {
+            if (err) {
+                throw err;
+            }
 
-    console.log(query);
+            cb(res);
+        });
+    },
 
-    connection.query(query, vals, function(err, res) {
-      if (err) {
-        throw err;
+    updateOne: function(table, objColVals, condition, cb) {
+        let query = "UPDATE " + table;
+    
+        query += " SET ";
+        query += objToSql(objColVals);
+        query += " WHERE ";
+        query += condition;
+    
+        console.log(query);
+        connection.query(query, function(err, res) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(res);
+        });
       }
-
-      cb(res);
-    });
-  },
-
-updateOne: function() {
-
-
-}
+      
+    
 
 };
 //exporting this out
