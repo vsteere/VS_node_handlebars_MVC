@@ -50,7 +50,7 @@ router.get("/", function(req, res) {
   });
 
   router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    let condition = "id = " + req.params.id;
   
     burger.deleteOne(condition, function(result) {
       if (result.affectedRows == 0) {

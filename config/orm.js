@@ -28,8 +28,8 @@ function objToSql(ob) {
 //three methods for running the application
 let orm = {
     //selects all burgers from database
-    selectAll: function (input, cb) {
-        let query = "SELECT * FROM " + input + ";";
+    selectAll: function (tableInput, cb) {
+        let query = "SELECT * FROM " + tableInput + ";";
         connection.query(query, function (err, res) {
             if (err) { throw err; }
             cb(res);
@@ -37,14 +37,14 @@ let orm = {
     },
     //adds a new burger to database
     insertOne: function (table, cols, vals, cb) {
-        let query = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
 
-        query += " (";
-        query += cols.toString();
-        query += ") ";
-        query += "VALUES (";
-        query += printQuestionMarks(vals.length);
-        query += ") ";
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
 
         console.log(query);
 
@@ -58,27 +58,26 @@ let orm = {
     },
 
     updateOne: function(table, objColVals, condition, cb) {
-        let query = "UPDATE " + table;
+        let queryString = "UPDATE " + table;
     
-        query += " SET ";
-        query += objToSql(objColVals);
-        query += " WHERE ";
-        query += condition;
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
     
-        console.log(query);
-        connection.query(query, function(err, res) {
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
           }
     
-          cb(res);
+          cb(result);
         });
-      },
-
+    },
       deleteOne: function(table, condition, cb) {
-        var query = "DELETE FROM " + table;
-        query += " WHERE ";
-        query += condition;
+        let queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
     
         connection.query(query, function(err, result) {
           if (err) {
@@ -92,5 +91,6 @@ let orm = {
     
 
 };
+
 //exporting this out
-module.exports = orm;
+module.exports = orm

@@ -4,7 +4,7 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-buttons=true}}
+      {{> burgers/burger-buttons eat=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -12,7 +12,7 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-    //cat block is a separate file in the cats exercise
+    
       {{> burgers/burger-buttons eat=false}}
     {{/if}}
   {{/each}}
@@ -25,8 +25,6 @@
     <label for="burg">Burger Type:</label>
     <input type="text" id="burg" name="name">
   </div>
-
- 
 
   <button type="submit">Add Burger</button>
 </form>
