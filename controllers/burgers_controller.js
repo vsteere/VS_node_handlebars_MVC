@@ -20,7 +20,7 @@ router.get("/", function(req, res) {
 
   //this will write the new burger to the database
   router.post("/api/burgers", function(req, res) {
-    burger.insertOne([
+    burger.createOne([
       "name"
     ], [
       req.body.name
