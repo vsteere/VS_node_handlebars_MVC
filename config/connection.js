@@ -10,8 +10,8 @@ const mysql = require("mysql2");
 //   database: "burgers_db"
 // });
 let connection;
-if(process.env.JAWSDB.URL) {
-connection = mysql.createConnection(process.env.JAWSDB.URL);
+if(process.env.JAWSDB_URL) {
+connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
 else {
