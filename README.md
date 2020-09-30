@@ -13,4 +13,6 @@ Handlebars, Node.js, Express.js, MySQL
 Deployed app: https://vs-mvc-mysql.herokuapp.com/
 Repository: https://github.com/vsteere/VS_node_handlebars_MVC
 
-## Pictures
+## Images
+![Alt text](/public/assets/img/pic1.JPG?raw=true "picture 1")
+![Alt text](/public/assets/img/pic2.JPG?raw=true "picture 2")
