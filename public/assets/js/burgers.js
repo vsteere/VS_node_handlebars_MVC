@@ -23,7 +23,7 @@ $(function() {
         }
       );
     });
-  
+  //this is where the user can add a new burger to database
     $(".create-form").on("submit", function(event) {
       // added because of submit button
       event.preventDefault();
