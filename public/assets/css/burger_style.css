@@ -2,11 +2,13 @@ body
 {background-color: darkgoldenrod;};
 
 
-h1 {
-    text-align: center;
-};
+.main_headline {
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+text-align: center;
+font-size: 24px;
+color: red};
 
-li {
+ul {
 
     float: left;
-}
+};
