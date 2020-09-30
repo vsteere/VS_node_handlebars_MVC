@@ -1,0 +1,12 @@
+body 
+{background-color: darkgoldenrod;};
+
+
+h1 {
+    text-align: center;
+};
+
+li {
+
+    float: left;
+}

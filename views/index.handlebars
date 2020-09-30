@@ -1,7 +1,7 @@
 <h1>Let's Eat the Burger!</h1>
 
 {{!-- This is the first unordered list to show the burgers that are not yet eaten --}}
-<ul>
+<ul id="devour">
   {{#each burgers}}
     {{#unless devoured}}
       {{> burgers/burger-buttons eat=true}}
@@ -9,7 +9,7 @@
   {{/each}}
 </ul>
 {{!-- Second list for the burgers that are eaten --}}
-<ul>
+<ul id="eaten">
   {{#each burgers}}
     {{#if devoured}}
     
