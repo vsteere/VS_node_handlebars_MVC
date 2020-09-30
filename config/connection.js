@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 
 
 
-// const connection = mysql.createConnection({
+// let connection = mysql.createConnection({
 //   host: "localhost",
 //   port: 3306,
 //   user: "root",
@@ -15,7 +15,7 @@ connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
 else {
-  let connection = mysql.createConnection({
+  connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -23,13 +23,7 @@ else {
     database: "burgers_db"
   });
 
-  connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-    console.log("connected as id " + connection.threadId);
-  });
+ 
 
 
 }

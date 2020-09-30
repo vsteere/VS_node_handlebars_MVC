@@ -1,10 +1,10 @@
-<head><link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" /></head>
+
 
 
 <h1 class="main_headline">Let's Eat the Burger!</h1>
 
 {{!-- This is the first unordered list to show the burgers that are not yet eaten --}}
-<ul id="devour">
+<ul>
   {{#each burgers}}
     {{#unless devoured}}
       {{> burgers/burger-buttons eat=true}}
@@ -12,7 +12,7 @@
   {{/each}}
 </ul>
 {{!-- Second list for the burgers that are eaten --}}
-<ul id="eaten">
+<ul>
   {{#each burgers}}
     {{#if devoured}}
     
