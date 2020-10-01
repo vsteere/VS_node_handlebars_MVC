@@ -1,25 +1,40 @@
 
+<div class="container">
 
+<header>
 
-<h1 class="main_headline">Let's Eat the Burger!</h1>
+<h1 class="main_headline" style="text-align: center;" >Let's Eat the Burger!</h1>
 
+<img src="assets/img/hamburger.jpg" width="250" height= "200" alt="burger"> 
+{{!-- image downloaded from pixabay.com  https://pixabay.com/photos/hamburger-burger-barbeque-bbq-beef-1238246/--}}
+
+</header>
+<br><br><br>
+
+<div class="row">
+<div class="col">
 {{!-- This is the first unordered list to show the burgers that are not yet eaten --}}
-<ul>
+<ul id="eat1">
   {{#each burgers}}
     {{#unless devoured}}
       {{> burgers/burger-buttons eat=true}}
     {{/unless}}
   {{/each}}
 </ul>
+</div>
+<div class="col">
 {{!-- Second list for the burgers that are eaten --}}
-<ul>
+<ul id="eat2">
   {{#each burgers}}
     {{#if devoured}}
     
       {{> burgers/burger-buttons eat=false}}
     {{/if}}
   {{/each}}
-</ul>
+</ul></div>
+
+</div><br><br><br>
+<footer>
 {{!-- Box for user to type in a new burger and a submit button --}}
 <h2>Add a New Burger</h2>
 <form class="create-form">
@@ -31,3 +46,5 @@
 
   <button type="submit">Add Burger</button>
 </form>
+</footer>
+</div>
